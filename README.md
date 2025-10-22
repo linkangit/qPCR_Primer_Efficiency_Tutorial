@@ -171,27 +171,9 @@ print(f"R²:          {r_value**2:.4f}")
 print(f"Efficiency:  {eff_percent:.2f}%")
 print("=" * 50)
 
-# Quality control interpretation
-print("\nQUALITY CONTROL:")
-if 90 <= eff_percent <= 110:
-    print("✓ Efficiency is within acceptable range (90-110%)")
-else:
-    print("✗ WARNING: Efficiency is outside acceptable range (90-110%)")
-    
-if r_value**2 >= 0.98:
-    print("✓ R² indicates excellent linearity (≥0.98)")
-elif r_value**2 >= 0.95:
-    print("⚠ R² is acceptable but not ideal (0.95-0.98)")
-else:
-    print("✗ WARNING: R² suggests poor linearity (<0.95)")
-
-if abs(slope + 3.32) < 0.3:
-    print("✓ Slope is close to ideal (-3.32)")
-else:
-    print("⚠ Slope deviates from ideal (-3.32)")
 
 # ===== VISUALIZATION =====
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(8, 6))
 
 # Plot data points
 plt.scatter(log10_conc, ct_values, s=100, color='darkblue', 
@@ -206,26 +188,24 @@ plt.plot(xvals, slope*xvals + intercept, 'r--', linewidth=2,
 for i, dilution in enumerate(dilutions):
     plt.annotate(dilution, (log10_conc[i], ct_values[i]), 
                  xytext=(8, 8), textcoords='offset points', 
-                 fontsize=9, color='darkblue',
-                 bbox=dict(boxstyle='round,pad=0.3', facecolor='yellow', alpha=0.3))
+                 fontsize=12, color='black')
 
 # Add equation and statistics box
 textstr = f'y = {slope:.3f}x + {intercept:.3f}\nR² = {r_value**2:.4f}\nEfficiency = {eff_percent:.1f}%'
-plt.text(0.05, 0.95, textstr, transform=plt.gca().transAxes, 
-         verticalalignment='top', fontsize=11,
+plt.text(0.773, 0.86, textstr, transform=plt.gca().transAxes, 
+         verticalalignment='top', fontsize=10,
          bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
 
 # Formatting
-plt.xlabel("log₁₀(Relative Concentration)", fontsize=12, fontweight='bold')
-plt.ylabel("Ct Value", fontsize=12, fontweight='bold')
-plt.title("qPCR Standard Curve - Primer Efficiency Analysis", fontsize=14, fontweight='bold')
-plt.grid(True, alpha=0.3, linestyle='--')
-plt.legend(loc='lower right', fontsize=10)
+plt.xlabel("log₁₀(Relative Concentration)", fontsize=12)
+plt.ylabel("Ct Value", fontsize=12)
+plt.title("qPCR Standard Curve - Primer Efficiency Analysis", fontsize=12)
+plt.grid(True)
+plt.legend(loc='upper right', fontsize=10)
 plt.tight_layout()
 
 # Save and show
-plt.savefig('qpcr_efficiency_curve.png', dpi=300, bbox_inches='tight')
-print("\n✓ Plot saved as 'qpcr_efficiency_curve.png'")
+plt.savefig('qpcr_efficiency_curve.png')
 plt.show()
 ```
 
