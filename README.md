@@ -1,5 +1,6 @@
 # qPCR Primer Efficiency Calculation Tutorial
 
+![](figure.png)
 A comprehensive guide to calculating and interpreting qPCR primer efficiency using Python.
 
 ## Table of Contents
