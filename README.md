@@ -3,20 +3,6 @@
 ![](figure.png)
 A comprehensive guide to calculating and interpreting qPCR primer efficiency using Python.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [What is Primer Efficiency?](#what-is-primer-efficiency)
-- [Materials Needed](#materials-needed)
-- [Experimental Design](#experimental-design)
-- [Data Collection](#data-collection)
-- [Calculation Method](#calculation-method)
-- [Python Implementation](#python-implementation)
-- [Interpreting Results](#interpreting-results)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
----
-
 ## Introduction
 
 Primer efficiency is a critical quality control metric in quantitative PCR (qPCR) experiments. This tutorial will guide you through the process of calculating primer efficiency using a standard dilution series and interpreting the results to ensure reliable qPCR data.
